@@ -11,18 +11,28 @@ tar -zxvf pkg-config-${PKG_VER}.tar.gz || exit 1
 cd pkg-config-${PKG_VER}
 /bin/bash ../configure_for_macfuse.sh || exit 1
 make -j5 || exit 1
-sudo make install || exit 1
 
 cd $CWD
 tar -zxvf gettext-${GETTEXT_VER}.tar.gz || exit 1
 cd gettext-${GETTEXT_VER}
 /bin/bash ../configure_for_macfuse.sh || exit 1
 make -j5 || exit 1
-sudo make install || exit 1
 
 cd $CWD
 tar -zxvf glib-${GLIB_VER}.tar.gz || exit 1
 cd glib-${GLIB_VER}
 /bin/bash ../configure_for_macfuse.sh || exit 1
+if [ "$(uname -p)" == "powerpc" ]; then
+  patch -p1 < ../glib-powerpc.diff
+fi
 make -j5 || exit 1
+
+cd $CWD
+cd pkg-config-${PKG_VER}
+sudo make install || exit 1
+cd $CWD
+cd gettext-${GETTEXT_VER}
+sudo make install || exit 1
+cd $CWD
+cd glib-${GLIB_VER}
 sudo make install || exit 1

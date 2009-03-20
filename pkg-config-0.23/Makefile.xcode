@@ -6,4 +6,4 @@ Makefile:	Makefile.xcode configure Makefile.in config.h.in
 	CFLAGS="-O -g -arch i386 -arch ppc -isysroot $(SDK_DIR)" LDFLAGS="-arch i386 -arch ppc" ./configure --prefix=/usr/local --disable-dependency-tracking
 
 clean:
-	test -f Makefile && make distclean
+	echo "warning: pkg-config not cleaned. if you really want to clean MILib, do a git reset/git clean of your MILibs."

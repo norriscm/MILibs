@@ -49,6 +49,13 @@
 			remoteGlobalIDString = A81581030F73E3D700862AEC /* "Install" gettext */;
 			remoteInfo = "\"Install\" gettext";
 		};
+		A815814B0F73F19100862AEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A815812D0F73E96100862AEC /* Build glib */;
+			remoteInfo = "Build glib";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -12891,7 +12898,7 @@
 /* Begin PBXLegacyTarget section */
 		A81580990F73BC5500862AEC /* Build pkg-config */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = "$(ACTION) -j3";
 			buildConfigurationList = A81580A10F73BC8B00862AEC /* Build configuration list for PBXLegacyTarget "Build pkg-config" */;
 			buildPhases = (
 			);
@@ -12934,7 +12941,7 @@
 		};
 		A81580D70F73C14900862AEC /* Build gettext */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = "$(ACTION) -j3";
 			buildConfigurationList = A81580DE0F73C16A00862AEC /* Build configuration list for PBXLegacyTarget "Build gettext" */;
 			buildPhases = (
 			);
@@ -12980,7 +12987,7 @@
 		};
 		A815812D0F73E96100862AEC /* Build glib */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = "$(ACTION) -j3";
 			buildConfigurationList = A81581390F73E97C00862AEC /* Build configuration list for PBXLegacyTarget "Build glib" */;
 			buildPhases = (
 			);
@@ -12992,6 +12999,21 @@
 			name = "Build glib";
 			passBuildSettingsInEnvironment = 1;
 			productName = "Compile glib";
+		};
+		A81581480F73F18000862AEC /* "Install" glib */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = install;
+			buildConfigurationList = A81581520F73F1AA00862AEC /* Build configuration list for PBXLegacyTarget ""Install" glib" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "glib-2.15.4";
+			dependencies = (
+				A815814C0F73F19100862AEC /* PBXTargetDependency */,
+			);
+			name = "\"Install\" glib";
+			passBuildSettingsInEnvironment = 1;
+			productName = "\"Install\" glib";
 		};
 /* End PBXLegacyTarget section */
 
@@ -13012,6 +13034,7 @@
 				A81581030F73E3D700862AEC /* "Install" gettext */,
 				A81580E20F73D41000862AEC /* Configure glib */,
 				A815812D0F73E96100862AEC /* Build glib */,
+				A81581480F73F18000862AEC /* "Install" glib */,
 			);
 		};
 /* End PBXProject section */
@@ -13046,6 +13069,11 @@
 			isa = PBXTargetDependency;
 			target = A81581030F73E3D700862AEC /* "Install" gettext */;
 			targetProxy = A81581450F73F14800862AEC /* PBXContainerItemProxy */;
+		};
+		A815814C0F73F19100862AEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A815812D0F73E96100862AEC /* Build glib */;
+			targetProxy = A815814B0F73F19100862AEC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -13220,6 +13248,27 @@
 			};
 			name = Release;
 		};
+		A81581490F73F18000862AEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "\"Install\" glib";
+			};
+			name = Debug;
+		};
+		A815814A0F73F18000862AEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "\"Install\" glib";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -13291,6 +13340,15 @@
 			buildConfigurations = (
 				A815812E0F73E96200862AEC /* Debug */,
 				A815812F0F73E96200862AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A81581520F73F1AA00862AEC /* Build configuration list for PBXLegacyTarget ""Install" glib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A81581490F73F18000862AEC /* Debug */,
+				A815814A0F73F18000862AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

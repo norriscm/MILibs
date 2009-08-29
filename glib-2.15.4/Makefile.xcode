@@ -9,18 +9,26 @@ INCLUDE		:= $(BUILT_PRODUCTS_DIR)/include
 LIBS 		:= $(BUILT_PRODUCTS_DIR)/lib
 ARCH		:= $(shell uname -p)
 
-ifeq ($(findstring 10.5, $(OS_VER)), 10.5)
+ifeq ($(findstring 10.6, $(OS_VER)), 10.6)
+	CC := gcc-4.0
 	CFLAGS	:= -O0 -g -arch i386 -arch ppc -isysroot $(SDK_DIR) -I$(INCLUDE)
 	LDFLAGS := -Wl,-syslibroot,$(SDK_DIR) -arch i386 -arch ppc -L$(LIBS)
 else
+ifeq ($(findstring 10.5, $(OS_VER)), 10.5)
+	CC := gcc
+	CFLAGS	:= -O0 -g -arch i386 -arch ppc -isysroot $(SDK_DIR) -I$(INCLUDE)
+	LDFLAGS := -Wl,-syslibroot,$(SDK_DIR) -arch i386 -arch ppc -L$(LIBS)
+else
+	CC := gcc
 	CFLAGS	:= -O0 -g -D_POSIX_C_SOURCE=200112L -arch i386 -arch ppc -isysroot $(SDK_DIR) -I$(INCLUDE)
 	LDFLAGS := -Wl,-syslibroot,$(SDK_DIR) -arch i386 -arch ppc -L$(LIBS)
+endif
 endif
 
 all:	Makefile
 
 Makefile:	Makefile.xcode configure Makefile.in config.h.in
-	PATH=$(PATH) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" ./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --enable-static
+	CC=$(CC) PATH=$(PATH) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" ./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --enable-static
 	if [ "x$(ARCH)" == "xpowerpc" ]; then \
 		mv config.h config.h.wrong ;\
 		cat config.h.wrong | sed -e "s|#define G_ATOMIC_POWERPC 1||" > config.h ;\

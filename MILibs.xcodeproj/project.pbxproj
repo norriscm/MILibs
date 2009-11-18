@@ -56,6 +56,20 @@
 			remoteGlobalIDString = A815812D0F73E96100862AEC;
 			remoteInfo = "Build glib";
 		};
+		C9F6559A10B3E04700511566 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F6558610B3DEDC00511566 /* Build sed-4.2 */;
+			remoteInfo = "Build sed-4.2";
+		};
+		C9F6559C10B3E04F00511566 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F6557A10B3DE8900511566 /* Configure sed-4.2 */;
+			remoteInfo = "Configure sed-4.2";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -12934,6 +12948,7 @@
 			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = "gettext-0.17";
 			dependencies = (
+				C9F6559B10B3E04700511566 /* PBXTargetDependency */,
 			);
 			name = "Configure gettext";
 			passBuildSettingsInEnvironment = 1;
@@ -13015,6 +13030,35 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = "\"Install\" glib";
 		};
+		C9F6557A10B3DE8900511566 /* Configure sed-4.2 */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-f Makefile.xcode $(ACTION)";
+			buildConfigurationList = C9F6558310B3DEAC00511566 /* Build configuration list for PBXLegacyTarget "Configure sed-4.2" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "sed-4.2";
+			dependencies = (
+			);
+			name = "Configure sed-4.2";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Configure sed-4.2";
+		};
+		C9F6558610B3DEDC00511566 /* Build sed-4.2 */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION) -j3";
+			buildConfigurationList = C9F6559610B3DF0F00511566 /* Build configuration list for PBXLegacyTarget "Build sed-4.2" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "sed-4.2";
+			dependencies = (
+				C9F6559D10B3E04F00511566 /* PBXTargetDependency */,
+			);
+			name = "Build sed-4.2";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build sed-4.2";
+		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXProject section */
@@ -13029,6 +13073,8 @@
 			targets = (
 				A81580A40F73BD8B00862AEC /* Configure pkg-config */,
 				A81580990F73BC5500862AEC /* Build pkg-config */,
+				C9F6557A10B3DE8900511566 /* Configure sed-4.2 */,
+				C9F6558610B3DEDC00511566 /* Build sed-4.2 */,
 				A81580CD0F73C01C00862AEC /* Configure gettext */,
 				A81580D70F73C14900862AEC /* Build gettext */,
 				A81581030F73E3D700862AEC /* "Install" gettext */,
@@ -13074,6 +13120,16 @@
 			isa = PBXTargetDependency;
 			target = A815812D0F73E96100862AEC /* Build glib */;
 			targetProxy = A815814B0F73F19100862AEC /* PBXContainerItemProxy */;
+		};
+		C9F6559B10B3E04700511566 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F6558610B3DEDC00511566 /* Build sed-4.2 */;
+			targetProxy = C9F6559A10B3E04700511566 /* PBXContainerItemProxy */;
+		};
+		C9F6559D10B3E04F00511566 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F6557A10B3DE8900511566 /* Configure sed-4.2 */;
+			targetProxy = C9F6559C10B3E04F00511566 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -13128,6 +13184,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PATH = "$(PROJECT_DIR)/sed-4.2/sed:$(PATH)";
 				PRODUCT_NAME = "Build gettext";
 				ZERO_LINK = NO;
 			};
@@ -13150,6 +13207,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PATH = "$(PROJECT_DIR)/sed-4.2/sed:$(PATH)";
 				PRODUCT_NAME = "\"Install\" gettext";
 				ZERO_LINK = NO;
 			};
@@ -13173,6 +13231,28 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "\"Install\" glib";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C9F6557B10B3DE8900511566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Configure sed-4.2";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C9F6558710B3DEDC00511566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build sed-4.2";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -13248,6 +13328,22 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A815814A0F73F18000862AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F6558310B3DEAC00511566 /* Build configuration list for PBXLegacyTarget "Configure sed-4.2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F6557B10B3DE8900511566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F6559610B3DF0F00511566 /* Build configuration list for PBXLegacyTarget "Build sed-4.2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F6558710B3DEDC00511566 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

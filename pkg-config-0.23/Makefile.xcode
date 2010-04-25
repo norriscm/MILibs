@@ -1,4 +1,3 @@
-SDK_DIR=/Developer/SDKs/MacOSX10.4u.sdk
 MAKEFILE=$(abspath $(BUILD_ROOT)/pkg-config-build/Makefile)
 
 all:	$(MAKEFILE)
@@ -11,7 +10,7 @@ $(MAKEFILE):	Makefile.xcode configure Makefile.in config.h.in
 	# now go in and build there
 	(cd "$(BUILD_ROOT)/pkg-config-build" && \
 		CC=gcc-4.0 \
-		CFLAGS="-O -g -arch i386 -arch ppc -isysroot $(SDK_DIR)" \
+		CFLAGS="-O -g -arch i386 -arch ppc -isysroot $(SDKROOT)" \
 		LDFLAGS="-arch i386 -arch ppc" \
 		./configure --prefix=/usr/local --disable-dependency-tracking)
 

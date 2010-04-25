@@ -1,4 +1,3 @@
-SDK_DIR=/Developer/SDKs/MacOSX10.4u.sdk
 MAKEFILE=$(abspath $(BUILD_ROOT)/sed-build/Makefile)
 
 all:	$(MAKEFILE)
@@ -9,9 +8,9 @@ $(MAKEFILE):	Makefile.xcode configure Makefile.in
 	ditto ./ "$(BUILD_ROOT)"/sed-build
 	(cd "$(BUILD_ROOT)"/sed-build && \
 		CC=gcc-4.0 \
-		CFLAGS="-O0 -g -arch i386 -arch ppc -isysroot $(SDK_DIR)" \
-		LDFLAGS="-Wl,-syslibroot,$(SDK_DIR) -arch i386 -arch ppc -fno-common" \
-		./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --with-libiconv-prefix=$(SDK_DIR)/usr)
+		CFLAGS="-O0 -g -arch i386 -arch ppc -isysroot $(SDKROOT)" \
+		LDFLAGS="-Wl,-syslibroot,$(SDKROOT) -arch i386 -arch ppc -fno-common" \
+		./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --with-libiconv-prefix=$(SDKROOT)/usr)
 
 clean:
 	echo "warning: sed not cleaned. if you really want to clean MILib, do a git reset/git clean of your MILibs."

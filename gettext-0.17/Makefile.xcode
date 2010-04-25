@@ -10,7 +10,7 @@ $(MAKEFILE):	Makefile.xcode configure Makefile.in
 		CC=gcc-4.0 \
 		PATH="$(BUILD_ROOT)/sed-build/sed:$(PATH)" \
 		CFLAGS="-O0 -g -D_POSIX_C_SOURCE=200112L -arch i386 -arch ppc -isysroot $(SDKROOT)" \
-		LDFLAGS="-Wl,-syslibroot,$(SDK_DIR) -arch i386 -arch ppc -fno-common" \
+		LDFLAGS="-Wl,-syslibroot,$(SDKROOT) -arch i386 -arch ppc -fno-common" \
 		./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --with-libiconv-prefix=$(SDK_DIR)/usr)
 
 clean:

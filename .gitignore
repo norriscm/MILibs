@@ -1,4 +1,4 @@
 # xcode ignores
-build/
+/build/
 *.xcodeproj/*.pbxuser
 *.xcodeproj/*.perspective*

@@ -23,7 +23,12 @@ real-configure:
 	CXXFLAGS="$(CXXFLAGS)" \
 	LDFLAGS="$(LDFLAGS)" \
 	PATH="$(BUILD_ROOT)/sed-build/sed:$(PATH)" \
-	./configure --prefix=$(BUILT_PRODUCTS_DIR) --disable-dependency-tracking --with-libiconv-prefix=$(SDK_DIR)/usr
+	./configure --prefix=$(BUILT_PRODUCTS_DIR) \
+		--disable-dependency-tracking \
+		--disable-java \
+		--disable-libasprintf \
+		--disable-nls \
+		--with-libiconv-prefix=$(SDK_DIR)/usr
 
 clean:
 	echo "warning: gettext not cleaned. if you really want to clean MILib, do a git reset/git clean of your MILibs."

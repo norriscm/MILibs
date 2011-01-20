@@ -1,6 +1,6 @@
 MAKEFILE=$(abspath $(BUILD_ROOT)/sed-build/Makefile)
 ARCH_FLAGS=$(patsubst %, -arch %,$(ARCHS))
-CC=gcc-4.2
+CC=llvm-gcc
 CFLAGS=-O0 -g $(ARCH_FLAGS) -isysroot $(SDKROOT)
 LDFLAGS=-Wl,-syslibroot,$(SDKROOT) $(ARCH_FLAGS) -fno-common
 

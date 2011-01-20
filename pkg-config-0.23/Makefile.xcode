@@ -1,6 +1,6 @@
 MAKEFILE=$(abspath $(BUILD_ROOT)/pkg-config-build/Makefile)
 ARCH_FLAGS=$(patsubst %, -arch %,$(ARCHS))
-CC=gcc-4.2
+CC=llvm-gcc
 CFLAGS=-O -g $(ARCH_FLAGS) -isysroot $(SDKROOT)
 LDFLAGS=$(ARCH_FLAGS)
 

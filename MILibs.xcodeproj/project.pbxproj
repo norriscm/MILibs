@@ -46,14 +46,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A81580990F73BC5500862AEC /* Build pkg-config */;
+			remoteGlobalIDString = A81580990F73BC5500862AEC;
 			remoteInfo = "Build pkg-config";
 		};
 		C911EC1C12E83333000541EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A81581030F73E3D700862AEC /* "Install" gettext */;
+			remoteGlobalIDString = A81581030F73E3D700862AEC;
 			remoteInfo = "\"Install\" gettext";
 		};
 		C9F6559A10B3E04700511566 /* PBXContainerItemProxy */ = {
@@ -14385,7 +14385,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/pkg-config-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/pkg-config-build";
 			dependencies = (
 				A81580C70F73BFBA00862AEC /* PBXTargetDependency */,
 			);
@@ -14429,7 +14429,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/gettext-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/gettext-build";
 			dependencies = (
 				A81580E00F73C19500862AEC /* PBXTargetDependency */,
 			);
@@ -14455,12 +14455,12 @@
 		};
 		A81581030F73E3D700862AEC /* "Install" gettext */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = install;
+			buildArgumentsString = "install-exec";
 			buildConfigurationList = A81581090F73E41100862AEC /* Build configuration list for PBXLegacyTarget ""Install" gettext" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/gettext-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/gettext-build";
 			dependencies = (
 				A81581070F73E3F100862AEC /* PBXTargetDependency */,
 			);
@@ -14475,7 +14475,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/glib-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/glib-build";
 			dependencies = (
 				A81581310F73E96E00862AEC /* PBXTargetDependency */,
 			);
@@ -14485,12 +14485,12 @@
 		};
 		A81581480F73F18000862AEC /* "Install" glib */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = install;
+			buildArgumentsString = "install-exec";
 			buildConfigurationList = A81581520F73F1AA00862AEC /* Build configuration list for PBXLegacyTarget ""Install" glib" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/glib-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/glib-build";
 			dependencies = (
 				A815814C0F73F19100862AEC /* PBXTargetDependency */,
 			);
@@ -14519,7 +14519,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "build/sed-build";
+			buildWorkingDirectory = "$(BUILD_ROOT)/sed-build";
 			dependencies = (
 				C9F6559D10B3E04F00511566 /* PBXTargetDependency */,
 			);

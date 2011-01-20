@@ -44,7 +44,17 @@ real-configure:
 	./configure \
 		--prefix=$(BUILT_PRODUCTS_DIR) \
 		--disable-dependency-tracking \
-		--disable-gtk-doc-html
+		--disable-gtk-doc-html \
+		--with-libiconv=native
+	# compiling fat 64-bit/32-bit creates a gint64 of the wrong size for i386
+	mv config.status config.status.broken
+	cat config.status.broken | sed \
+		-e 's/$${glib_extension}typedef signed $$gint64 gint64;/$${glib_extension}typedef signed long long gint64;/' \
+		-e 's/$${glib_extension}typedef unsigned $$gint64 guint64;/$${glib_extension}typedef unsigned long long guint64;/' \
+		> config.status
+	chmod +x config.status
+	# make sure we remove glibconfig.h so it gets rebuild at make time
+	rm glibconfig.h
 	if [ "x$(ARCH)" == "xpowerpc" ]; then \
 		mv config.h config.h.wrong ;\
 		cat config.h.wrong | sed -e "s|#define G_ATOMIC_POWERPC 1||" > config.h ;\

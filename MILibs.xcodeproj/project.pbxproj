@@ -14613,6 +14613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
+					x86_64,
 					i386,
 					ppc,
 				);

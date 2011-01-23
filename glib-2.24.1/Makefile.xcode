@@ -23,7 +23,7 @@ ifeq ($(findstring 10.5, $(OS_VER)), 10.5)
 else
 	CC := llvm-gcc
 	CFLAGS	:= -O0 -g $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
-	LDFLAGS := -Wl,-syslibroot,$(SDKROOT) $(ARCH_FLAGS) -L$(LIBS)
+	LDFLAGS := $(ARCH_FLAGS) -L$(LIBS)
 endif
 endif
 
@@ -45,13 +45,10 @@ real-configure:
 		--prefix=$(BUILT_PRODUCTS_DIR) \
 		--disable-dependency-tracking \
 		--disable-gtk-doc-html \
-		--with-libiconv=native
+		--with-libiconv=native \
+		--enable-debug=yes
 	# compiling fat 64-bit/32-bit creates a gint64 of the wrong size for i386
-	mv config.status config.status.broken
-	cat config.status.broken | sed \
-		-e 's/$${glib_extension}typedef signed $$gint64 gint64;/$${glib_extension}typedef signed long long gint64;/' \
-		-e 's/$${glib_extension}typedef unsigned $$gint64 guint64;/$${glib_extension}typedef unsigned long long guint64;/' \
-		> config.status
+	patch -p0 < config.status.patch
 	chmod +x config.status
 	# make sure we remove glibconfig.h so it gets rebuild at make time
 	rm glibconfig.h

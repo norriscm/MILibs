@@ -13,16 +13,16 @@ MAKEFILE	:= $(abspath $(BUILD_ROOT)/glib-build/Makefile)
 
 ifeq ($(findstring 10.4, $(OS_VER)), 10.4)
 	CC := gcc
-	CFLAGS	:= -O0 -g -D_POSIX_C_SOURCE=200112L $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
+	CFLAGS	:= -Os -g -D_POSIX_C_SOURCE=200112L $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
 	LDFLAGS := -Wl,-syslibroot,$(SDKROOT) $(ARCH_FLAGS) -L$(LIBS)
 else
 ifeq ($(findstring 10.5, $(OS_VER)), 10.5)
 	CC := gcc
-	CFLAGS	:= -O0 -g $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
+	CFLAGS	:= -Os -g $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
 	LDFLAGS := -Wl,-syslibroot,$(SDKROOT) $(ARCH_FLAGS) -L$(LIBS)
 else
 	CC := llvm-gcc
-	CFLAGS	:= -O0 -g $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
+	CFLAGS	:= -Os -g $(ARCH_FLAGS) -isysroot $(SDKROOT) -I$(INCLUDE)
 	LDFLAGS := $(ARCH_FLAGS) -L$(LIBS)
 endif
 endif

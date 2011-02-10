@@ -13576,7 +13576,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB919508733D9F0010E9CD /* Release */ = {
+		1DEB919508733D9F0010E9CD /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
@@ -13584,16 +13584,38 @@
 					i386,
 					ppc,
 				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
+				STRIP_STYLE = "non-global";
 				VALID_ARCHS = "x86_64 i386 ppc";
 			};
-			name = Release;
+			name = Deployment;
 		};
-		C9C762B512EFDB800072D1E8 /* Release */ = {
+		C921BA4813039DAF00538512 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+					ppc,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				STRIP_STYLE = "non-global";
+				VALID_ARCHS = "x86_64 i386 ppc";
+			};
+			name = Development;
+		};
+		C921BA4913039DAF00538512 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -13627,9 +13649,9 @@
 				PRODUCT_NAME = libintl;
 				ZERO_LINK = NO;
 			};
-			name = Release;
+			name = Development;
 		};
-		C9CDEB3612EFBD2300A76118 /* Release */ = {
+		C921BA4A13039DAF00538512 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -13667,7 +13689,83 @@
 				WARNING_CFLAGS = "-Wno-return-type";
 				ZERO_LINK = NO;
 			};
-			name = Release;
+			name = Development;
+		};
+		C9C762B512EFDB800072D1E8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/gettext-0.17/gettext-runtime";
+				INSTALL_PATH = /usr/local/lib;
+				LD_DYLIB_INSTALL_NAME = "@loader_path/Resources/$(EXECUTABLE_PATH)";
+				OTHER_CFLAGS = (
+					"-DLOCALEDIR=\\\"/Users/Shared/Projects/MacIrssi/Frameworks/MILibs/build/Release/share/locale\\\"",
+					"-DLOCALE_ALIAS_PATH=\\\"/Users/Shared/Projects/MacIrssi/Frameworks/MILibs/build/Release/share/locale\\\"",
+					"-DLIBDIR=\\\"/Users/Shared/Projects/MacIrssi/Frameworks/MILibs/build/Release/lib\\\"",
+					"-DBUILDING_LIBINTL",
+					"-DBUILDING_DLL",
+					"-DIN_LIBINTL",
+					"-DENABLE_RELOCATABLE=1",
+					"-DIN_LIBRARY",
+					"-DINSTALLDIR=\\\"/Users/Shared/Projects/MacIrssi/Frameworks/MILibs/build/Release/lib\\\"",
+					"-DNO_XMALLOC",
+					"-Dset_relocation_prefix=libintl_set_relocation_prefix",
+					"-Drelocate=libintl_relocate",
+					"-DDEPENDS_ON_LIBICONV=1",
+					"-DHAVE_CONFIG_H",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = libintl;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		C9CDEB3612EFBD2300A76118 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					"glib-2.24.1/",
+					"glib-2.24.1/glib/",
+					"gettext-0.17/gettext-runtime/intl",
+				);
+				INFOPLIST_FILE = "GLib-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Release\"",
+				);
+				OTHER_CFLAGS = (
+					"-DHAVE_CONFIG_H",
+					"-DG_ENABLE_DEBUG",
+					"-DG_DISABLE_DEPRECATED",
+					"-DGLIB_COMPILATION",
+					"-DPCRE_STATIC",
+					"-DG_DISABLE_SINGLE_INCLUDES",
+					"-D_REENTRANT",
+				);
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = GLib;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "-Wno-return-type";
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
 		};
 /* End XCBuildConfiguration section */
 
@@ -13675,26 +13773,29 @@
 		1DEB919308733D9F0010E9CD /* Build configuration list for PBXProject "MILibs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB919508733D9F0010E9CD /* Release */,
+				C921BA4813039DAF00538512 /* Development */,
+				1DEB919508733D9F0010E9CD /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Deployment;
 		};
 		C9C762B612EFDBAF0072D1E8 /* Build configuration list for PBXNativeTarget "libintl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C9C762B512EFDB800072D1E8 /* Release */,
+				C921BA4913039DAF00538512 /* Development */,
+				C9C762B512EFDB800072D1E8 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Deployment;
 		};
 		C9CDEB3712EFBD2300A76118 /* Build configuration list for PBXNativeTarget "GLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C9CDEB3612EFBD2300A76118 /* Release */,
+				C921BA4A13039DAF00538512 /* Development */,
+				C9CDEB3612EFBD2300A76118 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Deployment;
 		};
 /* End XCConfigurationList section */
 	};

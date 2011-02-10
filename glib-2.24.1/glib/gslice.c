@@ -359,6 +359,9 @@ g_slice_init_nomessage (void)
 static inline guint
 allocator_categorize (gsize aligned_chunk_size)
 {
+  /* Mac OS already has a magazine allocator, overriding glib */
+  return 0; /* always use malloc() */
+
   /* speed up the likely path */
   if (G_LIKELY (aligned_chunk_size && aligned_chunk_size <= allocator->max_slab_chunk_size_for_magazine_cache))
     return 1;           /* use magazine cache */
